@@ -67,6 +67,13 @@ public class Restaurant {
     }
 
     public Integer calculateOrderValue(List<String> menuItemsOrdered) {
-        return null;
+        Integer orderValue = 0;
+        for (String menuItemOrdered : menuItemsOrdered) {
+            Item itemOrdered = findItemByName(menuItemOrdered);
+            if (itemOrdered != null) {
+                orderValue += itemOrdered.getPrice();
+            }
+        }
+        return orderValue;
     }
 }
